@@ -5,13 +5,12 @@ job connect is a webpage that serves as a bridge between jobseekers and jobgiver
 job connect also known as the "Job Market" is a platform that give both jobseekers and jobgivers the oppurtunity to get what the are actively searching for, for the hiring managers it's talent to hire while for the Job seekers it's a job, Job connect also give both the oppurnity to connect on a personal level, its design in such away that every one has a safe place on it.
 
 ### Installation
-to install JobConnect, simply clone the repository and install the required dependencies:
-git clone hhtps://github.com/username/repo-name.git;
-cd repo-name
-run npm install
+The easiest way to see how jobconnect workes is to follow this simple steps;
+1. clone this project. git clone hhtps://github.com/username/repo-name.git;
+2. cd Jobconnect
+3. run npm install 
+4. run yarn run dev
 
-once the dependencies are installed you can run Jobconnect from the command line:
-yarn dev run.
 
 ### Usage
 to use jobconnect, simply follow these steps;
