@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import Header from "./components/header"
+import HomePage from "./page/homePage"
 import "./index.css"
-import React from 'react';
+
 
 function App() {
 
   return (
-    <div className='bg-blue-700'>
-      <h2 className='text-red-700'>hello </h2>
+    <div className=''>
+      <Header />
+      <div>
+        <HomePage/>
+      </div>
     </div>
   )
 }
