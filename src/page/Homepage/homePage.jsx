@@ -2,7 +2,7 @@
 
 function HomePage() {
     return (
-        <div className="relative bg-[url('./src/assets/happy-young.png')]">
+        <div className="relative" >
          <div className="text-Dark mt-48 max-w-lg ml-11">
            <h2 className="text-[30px]  font-semibold leading-normal">A Meeting Point Between Job Givers And Job Seekers</h2>
            <p>The Job market that serves as a bridge between you and your <span className="text-orange-700 text-lg">Aim and Targets</span>. Your dream job market is HERE</p>
