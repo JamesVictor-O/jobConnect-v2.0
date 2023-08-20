@@ -1,15 +1,37 @@
-import Header from "./components/header"
-import HomePage from "./page/homePage"
-import "./index.css"
 
+import {
+  NavLink,
+  createBrowserRouter,
+  Routes,
+  Route,
+  RouterProvider,
+  createRoutesFromElements
+} from "react-router-dom"
+import "./index.css"
+// pages
+import Header from "./components/header"
+import HomePage from "./page/Homepage/homePage"
+import JobSeekers from "./page/Jobseeker/jobSeeker"
+import topSearches from "./components/TopSearches/topSearches"
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+        <Route>
+          <Route path="/" element={<JobSeekers/>} />
+      
+        </Route>
+      )
+      
+)
 
 function App() {
 
   return (
-    <div className=''>
-      <Header />
+    <div>
+      <Header/>
       <div>
-        <HomePage/>
+      <RouterProvider router={router}/>
       </div>
     </div>
   )
