@@ -1,6 +1,6 @@
 export default function TopSearches(){
     return (
-        <div className="border border-black rounded-2xl w-[25%] m-5 p-4">
+        <div className="border border-black rounded-2xl  m-5 p-4">
             <h2 className="m-auto">Top Searches</h2>
                 <div>
                     <div className="flex justify-between">
