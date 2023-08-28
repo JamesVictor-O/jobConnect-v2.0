@@ -13,16 +13,16 @@ import Header from "./components/header"
 import HomePage from "./page/Homepage/homePage"
 import JobSeekers from "./page/Jobseeker/jobSeeker"
 import topSearches from "./components/TopSearches/topSearches"
+import { SignupPage } from "./page/signUp/signupPage"
 import { JobGivers } from "./page/jobGiversBoard/jobGiversBoard"
 import UserProfile from "./page/userprofile/userProfile"
-import { ProfilePicture } from "./components/ProfilePicture/profilePictue"
+import { ProfilePicture } from "./components/ProfilePicture/profilePictue
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
         <Route>
           <Route path="/" element={<UserProfile/>} />
-      
         </Route>
       )
       
