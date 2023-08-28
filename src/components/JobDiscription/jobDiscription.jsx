@@ -1,3 +1,4 @@
+import { CustomButton } from "../CustomButton/customButton"
 export default function JobDiscription() {
     return (
         <div className="border border-black m-3 p-2 pr-4 rounded-2xl">
@@ -19,7 +20,9 @@ export default function JobDiscription() {
                 </div>
                 <div className="flex justify-between">
                     <p className="hidden md:block">repost</p>
-                    <button className="border rounded-2xl bg-Dark p-1 text-white w-[100%]">Apply Now</button>
+                <CustomButton>
+                    Apply now
+                    </CustomButton>
                 </div>
         </div>
     )
