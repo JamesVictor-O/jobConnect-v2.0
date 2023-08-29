@@ -12,30 +12,30 @@ import "./index.css"
 import Header from "./components/header"
 import HomePage from "./page/Homepage/homePage"
 import JobSeekers from "./page/Jobseeker/jobSeeker"
-import topSearches from "./components/TopSearches/topSearches"
 import { SignupPage } from "./page/signUp/signupPage"
+import { RootPage } from "./RootPage"
 import { JobGivers } from "./page/jobGiversBoard/jobGiversBoard"
 import UserProfile from "./page/userprofile/userProfile"
-import { ProfilePicture } from "./components/ProfilePicture/profilePictue
 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-        <Route>
-          <Route path="/" element={<UserProfile/>} />
-        </Route>
-      )
-      
-)
 
 function App() {
 
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+          <Route path="/" element={<RootPage/>}>
+            <Route index element={<HomePage />} />
+            <Route path="/signup" element={<SignupPage/>}/>
+            <Route path="/jobgivers"element={<JobGivers/>}/>
+            <Route path="/jobseekers" element={<JobSeekers/>}/>
+          </Route>
+        )
+        
+  )
+
   return (
     <div>
-      <Header/>
-      <div>
       <RouterProvider router={router}/>
-      </div>
     </div>
   )
 }

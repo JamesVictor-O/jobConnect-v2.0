@@ -30,6 +30,8 @@ export function SignupPage() {
                 <Inputform name="Email" details={myDetails} value={myDetails.email} handleChange={HandleChange}/>
                 <Inputform name="Password" details={myDetails} value={myDetails.password} handleChange={HandleChange}/>
                 <Inputform name="ConfirmPassword" details={myDetails} value={myDetails.confirmPassword} handleChange={HandleChange} />
+                <input type="file" id="file"/>
+                <label htmlFor="file">upload</label>
                 <div className="md:w-[100%] w-[100%] p-1 ">
                     <label>Status:</label>
                     <select name="status" className="border-black border p-1 ml-1 rounded-lg md:w-[100%] w-[90%] outline-none">

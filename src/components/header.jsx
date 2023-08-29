@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { NavLink } from "react-router-dom";
 import "../index.css"
 
 function Header() {
@@ -33,12 +34,8 @@ function Header() {
                     </ul>
                 </nav>
                 <div className="btn1">
-                    <button className="Login">
-                        Log in
-                    </button>
-                    <button className="signup">
-                        Sign Up
-                    </button>
+                    <NavLink className="bg-Dark p-1 mr-2 rounded-lg" to="/signup">SIGN UP</NavLink>
+                    <NavLink to="" className="bg-Dark p-1 mr-2 rounded-lg">LOG IN</NavLink>
                 </div>
             </div>
         </div>
@@ -46,20 +43,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
-{/* <header>
-         <div class="header">
-            <h2>Jobco<em>NN</em>ect</h2>
-            
-            <div class="mobileHumbuger">
-               <div class="humbuger ">
-                   <div class="bar"></div>
-               </div>
-            </div>
-            <!-- mobile navigation menu -->
-
-            
-         </div>
-    </header> */}
