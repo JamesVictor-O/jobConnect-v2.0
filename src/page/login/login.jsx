@@ -1,33 +1,48 @@
+import { Inputform } from "../../components/InputForm/inputForm"
+import { NavLink } from "react-router-dom"
 import { useState } from "react"
 import { CustomButton } from "../../components/CustomButtons/customButton"
 
-const login = () => {
+const Login = () => {
 
     const [email, setEmail] = useState('')
     const [pw, setPw] = useState('')
 
+    const [logins, setLogins] = useState({
+        email: "",
+        password:""
+    })
 
+    const HandleChange = (event) => {
+        console.log(event)
+    }
     return (
-        <div className=" flex  flex-col items-center h-screen  bg-blue-400  w-[100%] pt-6 pb-7">
-            <h2 className="text-2xl text-white font-bold ">Login</h2>
-            <span className=" text-white">Connect with jobs and job seekers around the world on JobConnect!</span>
+        <div className=" flex  flex-col items-center h-screen w-[100%] pt-6 pb-7">
+            <h2 className="text-2xl text-black font-bold ">Login</h2>
+            <span className=" text-black">Connect with jobs and job seekers around the world on JobConnect!</span>
             <form className="md:mt-8 mt-5 flex flex-col md:w-[40%] w-[100%] " onSubmit={(e) => e.preventDefault()}>
 
-                <div className=" w-[100%]">
-                    <label htmlFor='email' className="">Email:</label>
-                    <input type='email' autoComplete='none' id='email' value={email} onChange={(e) => setEmail(e.target.value)} required className="border-black border p-1 ml-1 rounded-lg md:w-[100%] w-[95%] mb-3 outline-none" />
-                </div>
-
-                <div className=" w-[100%]">
-                    <label htmlFor='password' className="">Password:</label>
-                    <input type='password' autoComplete='none' id='password' value={pw} onChange={(e) => setPw(e.target.value)} required className="border-black border p-1 ml-1 rounded-lg md:w-[100%] w-[95%] mb-3 outline-none" />
-                </div>
-
+            <Inputform
+                    name="email"
+                    type="email"
+                    value={logins.email}
+                    label="Emali"
+                    required
+            />
+                <Inputform
+                    name="Password"
+                    type="password"
+                    value={logins.password}
+                    label="password"
+                    handleChange={HandleChange}
+                    required
+                />
+            
                 <CustomButton>LOGIN</CustomButton>
             </form>
-            <p>Haven't registered yet? <a href="#" className="text-red-800 pointer">Sign Up Now!</a></p>
+            <p>Haven't registered yet? <NavLink to="/signup" className="text-red-800 pointer">Sign Up Now!</NavLink></p>
         </div>
     )
 }
 
-export default login
+export default Login

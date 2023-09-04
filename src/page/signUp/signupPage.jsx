@@ -1,4 +1,5 @@
-import { CustomButton } from "../../components/CustomButtons/customButton"
+import {NavLink} from "react-router-dom"
+import { CustomButton } from "../../components/CustomButtons/customButton" 
 import { useState } from "react"
 import { Inputform } from "../../components/InputForm/inputForm"  
 
@@ -20,18 +21,56 @@ export function SignupPage() {
       console.log(myDetails)
     }
     return (
-        <div className=" flex  flex-col items-center h-screen  bg-blue-400  w-[100%] pt-6 pb-7">
-            <h2 className="text-2xl text-white font-bold ">Registration</h2>
-            <span className=" text-white">Create an account with us today</span>
+        <div className=" flex  flex-col items-center h-screen    w-[100%] pt-6 pb-7">
+            <h2 className="text-2xl text-black font-bold ">Registration</h2>
+            <span className=" text-black">Create an account with us today</span>
             <form className="md:mt-8 mt-5 flex flex-col md:w-[40%] w-[100%] ">
 
-                <Inputform name="FirstName" details={myDetails} value={myDetails.FirstName} handleChange={HandleChange} />
-                <Inputform name="LastName" details={myDetails} value={myDetails.LastName} handleChange={HandleChange}/> 
-                <Inputform name="Email" details={myDetails} value={myDetails.email} handleChange={HandleChange}/>
-                <Inputform name="Password" details={myDetails} value={myDetails.password} handleChange={HandleChange}/>
-                <Inputform name="ConfirmPassword" details={myDetails} value={myDetails.confirmPassword} handleChange={HandleChange} />
-                <input type="file" id="file"/>
-                <label htmlFor="file">upload</label>
+                <Inputform
+                    name="FirstName"
+                    type="text"
+                    details={myDetails}
+                    value={myDetails.FirstName}
+                    label="Firstname"
+                    handleChange={HandleChange}
+                    required
+                />
+                <Inputform
+                    name="LastName"
+                    type="test"
+                    label="LastName"
+                    details={myDetails}
+                    value={myDetails.LastName}
+                    handleChange={HandleChange}
+                    required
+                /> 
+                <Inputform
+                    name="Email"
+                    type="email"
+                    label="Email"
+                    details={myDetails}
+                    value={myDetails.email}
+                    handleChange={HandleChange}
+                    required
+                />
+                <Inputform
+                    name="Password"
+                    type="password"
+                    label="password"
+                    details={myDetails}
+                    value={myDetails.password}
+                    handleChange={HandleChange}
+                    required 
+                />
+                <Inputform
+                    name="ConfirmPassword"
+                    type="password"
+                    label="confirm Password"
+                    details={myDetails}
+                    value={myDetails.confirmPassword}
+                    handleChange={HandleChange}
+                    required
+                />
                 <div className="md:w-[100%] w-[100%] p-1 ">
                     <label>Status:</label>
                     <select name="status" className="border-black border p-1 ml-1 rounded-lg md:w-[100%] w-[90%] outline-none">
@@ -47,7 +86,7 @@ export function SignupPage() {
 
                 <CustomButton>SIGN UP</CustomButton>
             </form>
-            <p>Already Have An Account ? <a href="#" className="text-red-800 pointer">Login Now</a></p>
+            <p>Already Have An Account ?<NavLink to="/login" className="text-red-800 pointer">Login</NavLink></p>
          </div>
     )
 }
