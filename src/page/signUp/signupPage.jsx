@@ -4,7 +4,8 @@ import { CustomButton } from "../../components/CustomButtons/customButton"
 import { useState } from "react"
 import { Inputform } from "../../components/InputForm/inputForm"  
 import { auth } from "../../firebase/firebase.util"
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserDataBase } from "../../firebase/firebase.util"
 
 export function SignupPage() {
     let [myDetails, setmyDetails] = useState({
@@ -23,14 +24,39 @@ export function SignupPage() {
       setmyDetails({ ...myDetails, [name]:value})
     }
 
-    const handleSubmit = (e) => {
+    async function  handleSubmit(e)  {
         e.preventDefault();
-        const { email, password, confirmPassword } = myDetails;
+        const { email, password, confirmPassword, FirstName, LastName } = myDetails;
+        const displayName=`${FirstName}${ LastName}`
+
 
         if (password !== confirmPassword) return
 
-        createUserWithEmailAndPassword(auth, email,password)
-       console.log("okay")
+        const newUser = createUserWithEmailAndPassword(auth, email, password);
+        try{
+            const { user } = await newUser
+            createUserDataBase(user, { displayName, password })
+           setmyDetails({
+                FirstName: "",
+                LastName: "",
+                email: "",
+                password: "",
+                confirmPassword: "",
+                status:""
+                
+            }) 
+        } catch (error) {
+            alert(error)
+            setmyDetails({
+                FirstName: "",
+                LastName: "",
+                email: "",
+                password: "",
+                confirmPassword: "",
+                status:""
+                
+            }) 
+        }
         
     }
     return (

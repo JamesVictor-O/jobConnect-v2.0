@@ -1,12 +1,16 @@
+import { auth } from "../firebase/firebase.util";
+import { signOut } from "firebase/auth";
 import { useState } from "react"
 import {AiFillHome} from "react-icons/ai"
 import { NavLink } from "react-router-dom";
 import "../index.css"
 
-function Header() {
-    
+function Header({isLogedIn, setIsLogedIn}) {
     const [menuStatus, setMenuStatus] = useState(false)
-
+    const handleLogin = () => {
+        signOut(auth)
+        setIsLogedIn(!isLogedIn)
+   }
     const menuToggle = (e) => {
         if (document.getElementById('navMenu').classList.contains('hidden')) {
             document.getElementById('navMenu').classList.remove('hidden')
@@ -37,8 +41,16 @@ function Header() {
                     </ul>
                 </nav>
                 <div className="btn1">
-                    <NavLink className="bg-Dark p-1 mr-2 rounded-lg" to="/signup">SIGN UP</NavLink>
-                    <NavLink className="bg-Dark p-1 mr-2 rounded-lg" to="/login">LOG IN</NavLink>
+                    {
+                        !isLogedIn ?
+                              ( <>
+                                 <NavLink className="bg-Dark p-1 mr-2 rounded-lg" to="/signup">SIGN UP</NavLink>
+                                   <NavLink className="bg-Dark p-1 mr-2 rounded-lg" to="/login">LOG IN</NavLink> 
+                            </>) :
+                            <NavLink className="bg-Dark p-1 mr-2 rounded-lg" onClick={handleLogin}>LOG OUT</NavLink>
+                                    
+                            
+                        }
                 </div>
             </div>
         </div>
