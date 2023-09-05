@@ -20,7 +20,7 @@ const Login = () => {
         <div className=" flex  flex-col items-center h-screen w-[100%] pt-6 pb-7">
             <h2 className="text-2xl text-black font-bold ">Login</h2>
             <span className=" text-black">Connect with jobs and job seekers around the world on JobConnect!</span>
-            <form className="md:mt-8 mt-5 flex flex-col md:w-[40%] w-[100%] " onSubmit={(e) => e.preventDefault()}>
+            <form className="md:mt-8 mt-5 flex flex-col md:w-[40%] w-[100%] ">
 
             <Inputform
                     name="email"

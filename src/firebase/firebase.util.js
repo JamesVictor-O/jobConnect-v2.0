@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyBtpsdFwFILgUxzVKq385dEL2GKXB9wcUI",
     authDomain: "jobconnect-c5307.firebaseapp.com",
@@ -10,4 +10,4 @@ const firebaseConfig = {
   };
 
 export const app = initializeApp(firebaseConfig);
-export const auth=getAuth(app) 
+export const auth = getAuth(app) 
