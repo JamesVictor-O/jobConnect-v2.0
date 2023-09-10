@@ -94,7 +94,7 @@ export function SignupPage() {
                 <Inputform
                     name="password"
                     type="password"
-                    label="password"
+                    label="Password"
                     details={myDetails}
                     value={myDetails.password}
                     handleChange={HandleChange}
@@ -103,7 +103,7 @@ export function SignupPage() {
                 <Inputform
                     name="confirmPassword"
                     type="password"
-                    label="confirm Password"
+                    label="Confirm Password"
                     details={myDetails}
                     value={myDetails.confirmPassword}
                     handleChange={HandleChange}

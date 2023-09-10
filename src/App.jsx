@@ -5,7 +5,8 @@ import {
   Routes,
   Route,
   RouterProvider,
-  createRoutesFromElements
+  createRoutesFromElements,
+  Navigate
 } from "react-router-dom"
 import "./index.css"
 // pages
@@ -22,38 +23,38 @@ import UserProfile from "./page/userprofile/userProfile"
 import { createUserDataBase } from "./firebase/firebase.util"
 import { onSnapshot } from "firebase/firestore"
 
+import { connect } from "react-redux"
+import { setCurrentUser } from "./redux/user/user.action"
 
-
-function App() {
-  const [currentUser, setCurrentUser] = useState(null)
-  const [isLogedIn,setIsLogedIn]=useState(false)
-
+function App(props) {
+  
+  
   useEffect(() => {
     auth.onAuthStateChanged(async user => {
       if (user) {
         let userRef =await createUserDataBase(user)
         onSnapshot(userRef, (snapShot) => {
-          setCurrentUser({
+          props.setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
           })
         })
-        setIsLogedIn(!isLogedIn)
+        
       }else {
-        setCurrentUser(user)
+        props.setCurrentUser(user)
       } 
     })
 
-    console.log(currentUser)
+    console.log(props.AppcurrentUser)
   }, [])
 
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootPage isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} />}>
+      <Route path="/" element={<RootPage/>}>
             <Route index element={<HomePage />} />
             <Route path="/signup" element={<SignupPage/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/login" element={props.currentUser ? <Navigate to="/jobgivers" replace/> : <Login/>}/>
             <Route path="/jobgivers"element={<JobGivers/>}/>
             <Route path="/jobseekers" element={<JobSeekers/>}/>
           </Route>
@@ -67,5 +68,10 @@ function App() {
     </div>
   )
 }
-
-export default App
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+const mapStateToProps = (state) => ({
+  currentUser:state.user.currentUser
+})
+export default connect(mapStateToProps,mapDispatchToProps)(App)

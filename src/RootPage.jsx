@@ -1,9 +1,9 @@
 import Header from "./components/header"
 import { Outlet } from "react-router-dom"
-export const RootPage = ({isLogedIn,setIsLogedIn}) => {
+export const RootPage = () => {
     return (
         <div>
-            <Header isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} />
+            <Header/>
             <main>
                 <Outlet/>
             </main> 

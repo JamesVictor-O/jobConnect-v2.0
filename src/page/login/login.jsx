@@ -1,12 +1,11 @@
 import { Inputform } from "../../components/InputForm/inputForm"
-import { NavLink,useNavigate } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import { useState } from "react"
 import { CustomButton } from "../../components/CustomButtons/customButton"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../firebase/firebase.util"
 
 const Login = () => {
-    const history=useNavigate()
     const [logins, setLogins] = useState({
         email: "",
         password:""
@@ -26,7 +25,6 @@ const Login = () => {
                 password:""
             }) 
             alert("login successfully")
-            history("/jobgivers")
         } catch (error) {
             console.log(error)
         }
