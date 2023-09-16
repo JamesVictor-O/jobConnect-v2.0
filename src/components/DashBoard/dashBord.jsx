@@ -2,12 +2,14 @@ import {
     GrNext,
     GrLinkNext
 } from "react-icons/gr"
- import {FiChevronDown} from "react-icons/fi"
+import { FiChevronDown } from "react-icons/fi"
+import Calender from "../calendar/calender"
+import Note from "../note/note"
 const DashBord = () => {
     return (
-        <div className="bg-white h-screen">
+        <div className=" h-screen flex flex-row">
             {/* information display section */}
-            <div className="border px-6 h-[100%]">
+            <div className="border bg-white px-6 h-[100%] w-[100%]">
                 <div className="flex flex-col  border-b py-4 border-black" >
                     <h2 className="font-bold text-[1.2rem]">Welcome, James👏</h2>
                     <p className="text-[.8rem]">You have 10 hours left to submit your test task for senior frontend developer</p>
@@ -72,8 +74,13 @@ const DashBord = () => {
 
             {/* other sections  */}
 
-            <div>
-                
+            <div className="ml-2 p- w-[20%]">
+                <div>
+                    <Calender/>
+               </div>
+               <div>
+                  <Note/>
+               </div>
             </div>
         </div>
     )
