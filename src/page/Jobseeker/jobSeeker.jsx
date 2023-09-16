@@ -2,12 +2,12 @@ import JobDiscription from "../../components/JobDiscription/jobDiscription"
 import TopSearches from "../../components/TopSearches/topSearches"
 export default function JobSeekers() {
     return (
-        <div className=" w-[100%]">
-            <div className="flex flex-col md:flex-row p-5 border-2 border-b-gray-200 ">
-                <div className="w-[100%] mdw-[70%]">
-                    <h2 className="text-[24px] font-bold text-Dark">Search For New Job Opportunities</h2>
-                    <p className="pt-1 text-[15px]">Personalized filter makes it quick and easy to find the job you care about</p>
-                    <div className="mt-8">
+        <div className=" w-[100%] h-screen">
+            <div className="flex flex-col md:flex-row p-3 border-2 border-b-gray-200 ">
+                <div className="w-[100%] md:w-[70%]">
+                    <h2 className="text-[22px] font-bold text-Dark">Search For New Job Opportunities</h2>
+                    <p className="pt-1 text-[14px]">Personalized filter makes it quick and easy to find the job you care about</p>
+                    <div className="mt-5">
                         <input className="border outline-none border-black rounded-lg p-1 w-[100%] md:w-[49%] mb-3 md:mb-0" type="search" placeholder="job title or keywords"/>
                         <input className="border outline-none border-black rounded-lg p-1 w-[100%] md:w-[49%] md:ml-4 mb-3 md:mb-0" type="text" placeholder="Location"/>
                     </div>
@@ -30,7 +30,7 @@ export default function JobSeekers() {
                             <span className="bg-white">⬆⬇</span>
                         </div> 
                     </div>
-                    <div>
+                    <div className="h-[400px] overflow-scroll mt-2 border-t-black border rounded">
                         <JobDiscription/>
                         <JobDiscription/>
                         <JobDiscription/>
