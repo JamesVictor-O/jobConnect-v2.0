@@ -4,7 +4,7 @@ const HomePage = () => {
     return (
         <div className="flex flex-row ">
             <SideBar />
-            <main className="w-[95%] bg-red-50 p-4">
+            <main className="md:w-[95%] w-[100%] bg-red-50 md:p-4">
                 <Outlet/>
             </main>
         </div>
