@@ -24,7 +24,7 @@ function Header({currentUser }) {
     }
 
     return (
-        <div className="bg-primaryBlue text-white flex justify-between p-2 md:p-4 border-r item-center">
+        <div className="bg-primaryBlue text-white flex justify-between p-2 md:p-0 md:px-4 border-r item-center">
             <h2 className=" text-[16px] md:text-[20px]">Jobco<em className="text-orange-800  md:text-[23px]">NN</em>ect</h2>
 
             <div id='menuBtn' className="md:hidden z-50" onClick={(e) => menuToggle(e.target)}>
@@ -35,10 +35,10 @@ function Header({currentUser }) {
                 <nav>
                     <ul className="inline-block md:flex mr-[px] ">
                         <div className="flex item-center justify-center p-2 hover:border-b-white hover:border-b">
-                             <AiFillHome className=" text-Dark text-[20px]"/><NavLink to="/" className="text-Dark">HOME</NavLink>
+                             <AiFillHome className=" text-Dark text-[20px]"/><NavLink to="/homepage" className="text-Dark">HOME</NavLink>
                         </div>
                         <div className="flex item-center justify-center p-2 hover:border-b-white hover:border-b">
-                             <AiFillHome className=" text-Dark text-[20px]"/><NavLink to="/jobgivers" className="text-Dark">COMPANIES</NavLink>
+                             <AiFillHome className=" text-Dark text-[20px]"/><NavLink to="/homepage/jobgivers" className="text-Dark">COMPANIES</NavLink>
                         </div>
                     </ul>
                 </nav>
